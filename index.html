@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ใบส้ม</title>
+<meta name="description" content="ใบส้ม KS-ONE · เขียนใบเบิก">
+<meta name="theme-color" content="#0B1F4D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ใบส้ม">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+  html, body { margin: 0; height: 100%; background: #0B1F4D; }
+  body { padding-top: env(safe-area-inset-top); box-sizing: border-box; }
+  #app { position: fixed; top: env(safe-area-inset-top); left: 0; right: 0; bottom: 0; width: 100%; height: calc(100% - env(safe-area-inset-top)); border: 0; background: #F2F5F8; }
+  #load { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+          color: #fff; font-family: 'Leelawadee UI', 'Noto Sans Thai', Tahoma, sans-serif; font-size: 16px; background: #0B1F4D; transition: opacity .3s; }
+  #load img { width: 96px; height: 96px; border-radius: 22px; animation: bl 1.2s infinite; }
+  #load a { color: #D4AF37; font-size: 14px; }
+  @keyframes bl { 50% { opacity: .55; } }
+</style>
+</head>
+<body>
+<iframe id="app" title="ใบส้ม" allow="camera; clipboard-write" src="https://script.google.com/macros/s/AKfycbxbfhl3pXAAhFNm84Vl7BHFxVgyozOp0ClxUXuaW05SWAvigiTuNxTf9pC_lS_tV4IK-A/exec?p=office"></iframe>
+<div id="load"><img src="icon-192.png" alt=""><div>กำลังเปิดใบส้ม…</div>
+  <a href="https://script.google.com/macros/s/AKfycbxbfhl3pXAAhFNm84Vl7BHFxVgyozOp0ClxUXuaW05SWAvigiTuNxTf9pC_lS_tV4IK-A/exec?p=office">เปิดไม่ขึ้น? กดที่นี่</a></div>
+<script>
+  var f = document.getElementById('app'), l = document.getElementById('load');
+  f.addEventListener('load', function () { l.style.opacity = '0'; setTimeout(function () { l.style.display = 'none'; }, 300); });
+</script>
+</body>
+</html>
