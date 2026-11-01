@@ -26,12 +26,18 @@
 </style>
 </head>
 <body>
-<iframe id="app" title="ใบส้ม" allow="camera; clipboard-write" src="https://script.google.com/macros/s/AKfycbxbfhl3pXAAhFNm84Vl7BHFxVgyozOp0ClxUXuaW05SWAvigiTuNxTf9pC_lS_tV4IK-A/exec?p=office"></iframe>
+<iframe id="app" title="ใบส้ม" allow="camera; clipboard-write" src="https://script.google.com/macros/s/AKfycbxbfhl3pXAAhFNm84Vl7BHFxVgyozOp0ClxUXuaW05SWAvigiTuNxTf9pC_lS_tV4IK-A/exec?p=office&app=1"></iframe>
 <div id="load"><img src="icon-192.png" alt=""><div>กำลังเปิดใบส้ม…</div>
   <a href="https://script.google.com/macros/s/AKfycbxbfhl3pXAAhFNm84Vl7BHFxVgyozOp0ClxUXuaW05SWAvigiTuNxTf9pC_lS_tV4IK-A/exec?p=office">เปิดไม่ขึ้น? กดที่นี่</a></div>
 <script>
   var f = document.getElementById('app'), l = document.getElementById('load');
   f.addEventListener('load', function () { l.style.opacity = '0'; setTimeout(function () { l.style.display = 'none'; }, 300); });
+  /* 1 พ.ย. 69 พี่ฝน: หน้าข้างในขอเปลี่ยนหน้าผ่าน postMessage {ksone:'nav',url} เหมือนแอป KS-ONE · iPad กดกลับเมนูจากข้างในไม่ได้ */
+  function withApp(u) { return /[?&]app=1/.test(u) ? u : u + (u.indexOf('?') >= 0 ? '&' : '?') + 'app=1'; }
+  window.addEventListener('message', function (ev) {
+    var d = ev.data; if (!d || d.ksone !== 'nav' || typeof d.url !== 'string' || !/^https:\/\/script\.google\.com\//.test(d.url)) return;
+    l.style.display = ''; l.style.opacity = '1'; f.src = withApp(d.url);
+  });
 </script>
 </body>
 </html>
